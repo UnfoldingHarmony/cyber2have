@@ -122,8 +122,8 @@ factor_descriptions_qopi = {
 }
 
 no_qopi_message = {
-    'en': "No specified process implementation maturity.",
-    'de': "Keine spezifizierte Prozess-Implementierungsmaturität."
+    'en': "Process implementation maturity not specified.",
+    'de': "Prozess-Implementierungsmaturität nicht spezifiziert."
 }
 
 ##############
