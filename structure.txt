@@ -1,0 +1,7 @@
+1. Main Application File (app.py):
+Entry point for the Streamlit application. Handle the overall layout and flow of the app.
+2. Configuration and Constants (config.py):
+Language options, phase titles, maturity levels, descriptions, and any other constant data.
+This keeps the main application file clean and makes it easy to manage static data.
+3. Symbols Directory (symbols/):
+Keep your PNG files in this directory.
