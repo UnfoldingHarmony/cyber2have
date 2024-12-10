@@ -145,15 +145,15 @@ color_assignment_title = {
 #Color Assignment Logic
 color_legend_text = {
     'en': [
-        "Below Maturity Baseline or >30% from SHOULD BE",
-        "20%-30% from SHOULD BE",
-        "<20% from SHOULD BE",
+        "Below Maturity Baseline,
+        ">30% from SHOULD BE",
+        "<=30% from SHOULD BE",
         "At or Above SHOULD BE"
     ],
     'de': [
-        "Unter Reifegrad-Grundlinie oder >30% vom SOLL",
-        "20%-30% vom SOLL",
-        "<20% vom SOLL",
+        "Unter Reifegrad-Grundlinie,
+        ">30% vom SOLL",
+        "<30% vom SOLL",
         "Am oder über dem SOLL"
     ]
 }
