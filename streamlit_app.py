@@ -29,7 +29,7 @@ def determine_bar_color(effectiveness, should_be, baseline_threshold):
     distance = should_be - effectiveness
     if distance <= 0:
         return 'green'
-    elif distance <= 30:
+    elif distance <= 20:
         return 'yellow'
     else:
         return 'orange'
