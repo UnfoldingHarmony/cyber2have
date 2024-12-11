@@ -145,18 +145,29 @@ color_assignment_title = {
 #Color Assignment Logic
 color_legend_text = {
     'en': [
-        "Below CT-Baseline",
-        ">20% from SHOULD BE",
-        "<=20% from SHOULD BE",
-        "At or Above SHOULD BE"
+        "Below 50% of Baseline",
+        "Below 80% of Baseline",
+        "Below Baseline",
+        "Above Baseline, <50% to SHOULD BE",
+        "Above Baseline, <80% to SHOULD BE",
+        "At SHOULD BE",
+        "Above SHOULD BE, <10%",
+        "Above SHOULD BE, <20%",
+        "Above SHOULD BE, >20%"
     ],
     'de': [
-        "Unter CT-Grundlinie",
-        ">20% vom SOLL",
-        "<=20% vom SOLL",
-        "Am oder über dem SOLL"
+        "Unter 50% der Grundlinie",
+        "Unter 80% der Grundlinie",
+        "Unter der Grundlinie",
+        "Über der Grundlinie, <50% bis SOLL",
+        "Über der Grundlinie, <80% bis SOLL",
+        "Am SOLL",
+        "Über SOLL, <10%",
+        "Über SOLL, <20%",
+        "Über SOLL, >20%"
     ]
 }
+
 ### QoR ### 
 legend_title_qor = {
     'en': "Quality of Results - Show more information",

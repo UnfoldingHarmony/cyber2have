@@ -25,14 +25,28 @@ uploaded_file = st.sidebar.file_uploader("Vorkehrungen Excel-Datei hochladen / U
 # Function to determine bar color
 def determine_bar_color(effectiveness, should_be, baseline_threshold):
     if effectiveness < baseline_threshold:
-        return 'red'
-    distance = should_be - effectiveness
-    if distance <= 0:
-        return 'green'
-    elif distance <= 20:
-        return 'yellow'
+        if effectiveness < baseline_threshold * 0.5:
+            return 'red'
+        elif effectiveness < baseline_threshold * 0.8:
+            return 'orange'
+        else:
+            return 'yellow'
+    elif effectiveness <= should_be:
+        progress = (effectiveness - baseline_threshold) / (should_be - baseline_threshold)
+        if progress < 0.5:
+            return 'lightgreen'
+        elif progress < 0.8:
+            return 'green'
+        else:
+            return 'darkgreen'
     else:
-        return 'orange'
+        surplus = effectiveness - should_be
+        if surplus <= 10:
+            return 'lightblue'
+        elif surplus <= 20:
+            return 'blue'
+        else:
+            return 'darkblue'
 
 # Function to create a plot
 def create_plot(effectiveness, should_be, baseline_threshold, title):
@@ -136,12 +150,20 @@ if uploaded_file:
     #st.markdown(f"#### {get_text(color_assignment_title)}")
     st.subheader(get_text(color_assignment_title))
 
+    ###
     # Use Matplotlib patches to create a legend
-    fig, ax = plt.subplots(figsize=(8, 0.5))
+    fig, ax = plt.subplots(figsize=(10, 1))
     ax.axis('off')
-    patches = [mpatches.Patch(color=color, label=label) for color, label in zip(['red', 'orange', 'yellow', 'green'], get_text(color_legend_text))]
-    ax.legend(handles=patches, loc='center', fontsize=8, ncol=4)
+    # Define the colors and corresponding labels
+    colors = ['red', 'orange', 'yellow', 'lightgreen', 'green', 'darkgreen', 'lightblue', 'blue', 'darkblue']
+    labels = get_text(color_legend_text)
+    # Create patches for each color and corresponding label
+    patches = [mpatches.Patch(color=color, label=label) for color, label in zip(colors, labels)]
+    # Add the legend to the plot
+    ax.legend(handles=patches, loc='center', fontsize=8, ncol=3)
+    # Display the plot in a Streamlit app
     st.pyplot(fig)
+    ###
 
     ### QoR ### 
     # Ausklappbarer Bereich mit einem Titel
