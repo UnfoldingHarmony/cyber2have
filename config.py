@@ -32,7 +32,7 @@ maturity_levels_qor = [
     (35, "Basic Protection", "Basisabsicher."),
     (50, "Best Practice", "Bewährte Praxis"),
     (65, "Advanced", "Erweitert"),
-    (85, "State of the Art", "Stand der Technik")
+    (85, "Top", "Spitze")
 ]
 
 # Quality of Results Maturity descriptions
