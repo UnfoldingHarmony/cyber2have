@@ -42,14 +42,14 @@ maturity_descriptions_qor = {
         ("Level 2:", "Basic Protection", "Basic protective measures are implemented to meet fundamental security requirements. (Features: Fulfillment of minimal security requirements, use of standard protocols, focus on basic protection. Acceptance present)"),
         ("Level 3:", "Best Practice", "Security measures adhere to recognized and proven practices. Few exceptions. (Features: Use of established methods and standards, regular review and adjustment, consistent application with less than 10% exceptions. Good acceptance)"),
         ("Level 4:", "Advanced", "Measures are comprehensive and specifically address targeted threats. Very few exceptions. (Features: Comprehensive coverage of specific threats, proactive security strategies, less than 5% exceptions. High acceptance)"),
-        ("Level 5:", "State of the Art", "Security measures are highly developed and set industry standards. Almost no exceptions. (Features: Use of cutting-edge technologies, industry-leading standards, less than 1% exceptions. Excellent acceptance)")
+        ("Level 5:", "Top", "Security measures are highly developed and set industry standards. Almost no exceptions. (Features: Use of cutting-edge technologies, industry-leading standards, less than 1% exceptions. Excellent acceptance)")
     ],
     'de': [
         ("Level 1:", "Initial", "Maßnahmen zeigen gelegentlich Wirksamkeit, aber ohne Konsistenz. (Merkmale: Inkonsequente Umsetzung, keine systematische Planung, gelegentliche Erfolge, aber keine Verlässlichkeit.)"),
         ("Level 2:", "Basisabsicherung", "Grundlegende Schutzmaßnahmen sind implementiert, um grundlegende Sicherheitsanforderungen zu erfüllen. (Merkmale: Erfüllung minimaler Sicherheitsanforderungen, Standardprotokolle werden genutzt, Fokus auf grundlegenden Schutz. Akzeptanz vorhanden)"),
         ("Level 3:", "Bewährte Praxis", "Sicherheitsmaßnahmen entsprechen anerkannten und erprobten Praktiken. Wenige Ausnahmen. (Merkmale: Nutzung bewährter Methoden und Standards, regelmäßige Überprüfung und Anpassung, konsistente Anwendung mit weniger als 10% Ausnahmen. Gute Akzeptanz)"),
         ("Level 4:", "Erweitert", "Maßnahmen sind umfassend und adressieren spezifische Bedrohungen gezielt. Sehr wenige Ausnahmen. (Merkmale: Umfassende Abdeckung spezifischer Bedrohungen, proaktive Sicherheitsstrategien, weniger als 5% Ausnahmen. Hohe Akzeptanz)"),
-        ("Level 5:", "Stand der Technik", "Sicherheitsmaßnahmen sind hochentwickelt und setzen Maßstäbe in der Branche. Nahezu keine Ausnahmen. (Merkmale: Nutzung modernster Technologien, branchenführende Standards, weniger als 1% Ausnahmen. Hervorragende Akzeptanz)")
+        ("Level 5:", "Spitze", "Sicherheitsmaßnahmen sind hochentwickelt und setzen Maßstäbe in der Branche. Nahezu keine Ausnahmen. (Merkmale: Nutzung modernster Technologien, branchenführende Standards, weniger als 1% Ausnahmen. Hervorragende Akzeptanz)")
     ]
 }
 
