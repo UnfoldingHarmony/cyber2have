@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from config import (
-    language_options, page_titles, phase_titles, maturity_levels_qor, maturity_descriptions_qor,
-    maturity_levels_qopi, maturity_descriptions_qopi, legend_title, color_assignment_title,
+    language_options, page_titles, phase_titles, qor_titles, maturity_levels_qor, maturity_descriptions_qor,
+    maturity_levels_qopi, qopi_titles, maturity_descriptions_qopi, legend_title, color_assignment_title,
     maturity_level_title_qor, upload_prompt, no_qopi_message, color_legend_text,
     baseline_threshold_qor, should_be_threshold_qor, legend_title_qor, factor_descriptions_qor, 
     factor_descriptions_qor_title, baseline_threshold_qopi, should_be_threshold_qopi,
@@ -135,11 +135,11 @@ if uploaded_file:
             st.markdown(f"### {measure_number}: {measure_title}")
 
             # Plot Result Maturity
-            st.pyplot(create_plot(effectiveness_qor, should_be_qor, baseline_threshold_qor, "Ergebnismaturität" if selected_language == "de" else "Result Maturity"))
+            st.pyplot(create_plot(effectiveness_qor, should_be_qor, baseline_threshold_qor, get_text(qor_titles)))
 
             # Plot Process Implementation Maturity if applicable
             if pd.notna(effectiveness_qopi) and effectiveness_qopi > 0:
-                st.pyplot(create_plot(effectiveness_qopi, should_be_qopi, baseline_threshold_qopi, "Prozess-Implementierungsmaturität" if selected_language == "de" else "Process Implementation Maturity"))
+                st.pyplot(create_plot(effectiveness_qopi, should_be_qopi, baseline_threshold_qopi, get_text(qopi_titles)))
             else:
                 st.markdown(f"<div style='background-color: #e0f7fa; padding: 5px; border-radius: 5px; font-size: 0.9em;'>{get_text(no_qopi_message)}</div>", unsafe_allow_html=True)
 

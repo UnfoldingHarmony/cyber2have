@@ -25,6 +25,12 @@ phase_titles = {
 ### Quality of Results ###
 ##########################
 
+# QoR titles
+qor_titles = {
+    'en': "Quality of Results Maturity",
+    'de': "Ergebnisqualität Reifegrad"
+}
+
 # Quality of Results Maturity Levels
 maturity_levels_qor = [
     (0, "", ""),
@@ -73,6 +79,12 @@ factor_descriptions_qor = {
 ### Quality of Process Implementation ###
 #########################################
 
+# QoPI titles
+qopi_titles = {
+    'en': "Process Implementation Maturity",
+    'de': "Prozess-Implementierung Reifegrad"
+}
+
 # Quality of Process Implementation Maturity Levels
 maturity_levels_qopi = [
     (0, "", ""),
@@ -107,17 +119,13 @@ factor_descriptions_qopi = {
         ("Clear Objectives", "Define measurable goals."),
         ("Clear Responsibilities", "Define roles and responsibilities."),
         ("Continuous Improvement", "Encourage regular improvements through appropriate methods."),
-        ("Feedback Loops", "Continuously collect and integrate feedback."),
-        ("Adaptive Structures", "Design the process to be modular and flexible."),
-        ("Culture of Innovation", "Foster a culture that supports innovation and change.")
+        ("Other important factors", "Quality of Documentation, Feedback Loops, Culture of Innovation, Adaptive Structures.")
     ],
     'de': [
         ("Klare Zielsetzung", "Definieren Sie messbare Ziele."),
         ("Klare Verantwortung", "Definieren Sie Rollen und Verantwortlichkeiten."),
         ("Kontinuierliche Verbesserung", "Fördern Sie regelmäßige Verbesserungen durch passende Methoden."),
-        ("Feedback-Schleifen", "Sammeln und integrieren Sie kontinuierlich Feedback."),
-        ("Anpassungsfähige Strukturen", "Gestalten Sie den Prozess modular und flexibel."),
-        ("Kultur der Innovation", "Fördern Sie eine Kultur, die Innovation und Veränderung unterstützt.")
+        ("Weitere wichtige Faktoren", "Qualität der Dokumentation, Feedback-Schleifen, Kultur der Innovation, anpassungsfähige Strukturen.")
     ]
 }
 
