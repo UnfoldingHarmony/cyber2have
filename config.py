@@ -27,8 +27,8 @@ phase_titles = {
 
 # QoR titles
 qor_titles = {
-    'en': "Quality of Results Maturity",
-    'de': "Ergebnisqualität Reifegrad"
+    'en': "Quality of Results (Maturity)",
+    'de': "Ergebnisqualität (Reifegrad)"
 }
 
 # Quality of Results Maturity Levels
@@ -81,8 +81,8 @@ factor_descriptions_qor = {
 
 # QoPI titles
 qopi_titles = {
-    'en': "Process Implementation Maturity",
-    'de': "Prozess-Implementierung Reifegrad"
+    'en': "Process Implementation (Maturity)",
+    'de': "Prozess-Implementierung (Reifegrad)"
 }
 
 # Quality of Process Implementation Maturity Levels
