@@ -27,8 +27,8 @@ phase_titles = {
 
 # QoR titles
 qor_titles = {
-    'en': "Quality of Results (Maturity)",
-    'de': "Ergebnisqualität (Reifegrad)"
+    'en': "Result Quality Maturity",
+    'de': "Ergebnisqualitätsreife"
 }
 
 # Quality of Results Maturity Levels
@@ -62,16 +62,18 @@ maturity_descriptions_qor = {
 # Quality of Results Factor descriptions
 factor_descriptions_qor = {
     'en': [
-        ("Technical Implementation", "Encompasses the modernity of the technologies used, with both the degree of innovation and the complexity-to-benefit ratio being crucial."),
-        ("Coverage", "Refers to the extent of covered areas, with risk-based prioritization ensuring that the most critical threats are addressed."),
+        ("Technical Implementation", "The technologies used must be effective in order to achieve the defined objectives and reliably ward off threats. An efficient cost-benefit ratio is crucial, and the solutions should function reliably under real conditions and be able to react quickly to new threats."),
+        ("Coverage", "The measures should offer comprehensive protection by covering all relevant areas. Risk-based prioritization ensures that the focus is on the most critical threats."),
+        ("Administrative maturity", "The organization should have the necessary skills to effectively manage the solutions in-house or to competently manage external service providers."),
         ("User Acceptance", "Is crucial as even the best technical measures are of little use if they are not accepted or understood by users. If there is low acceptance, many complaints, and a high need for training, points are deducted in the evaluation. When acceptance is present but there is room for improvement, the evaluation remains neutral. Plus points are awarded when acceptance is high, users are satisfied, and little support is needed."),
-        ("Other important factors", "Goal Achievement (specified here with cybercrime), Efficiency, Adaptability, Measurability.")
+        ("Other important factors", "Modernity and future-proofing, efficiency, adaptability, measurability.")
     ],
     'de': [
-        ("Technische Implementierung", "Umfasst die Modernität der eingesetzten Technologien, wobei sowohl der Innovationsgrad als auch das Verhältnis von Komplexität zu Nutzen entscheidend sind."),
-        ("Abdeckungsgrad", "Bezieht sich auf den Umfang der abgedeckten Bereiche, wobei eine risikobasierte Priorisierung sicherstellt, dass die kritischsten Bedrohungen adressiert werden."),
+        ("Technische Implementierung", "Die eingesetzten Technologien müssen effektiv sein, um die definierten Ziele zu erreichen und Bedrohungen zuverlässig abzuwehren. Eine effiziente Kosten-Nutzen-Relation ist entscheidend, und die Lösungen sollten unter realen Bedingungen zuverlässig funktionieren und schnell auf neue Bedrohungen reagieren können."),
+        ("Abdeckungsgrad", "Die Maßnahmen sollten einen umfassenden Schutz bieten, indem sie alle relevanten Bereiche abdecken. Eine risikobasierte Priorisierung stellt sicher, dass die kritischsten Bedrohungen im Fokus stehen."),
+        ("Administrationsreife", "Die Organisation sollte über die nötigen Kompetenzen verfügen, um die Lösungen effektiv im Eigenbetrieb zu verwalten beziehungsweise externe Dienstleister kompetent zu steuern."),
         ("Benutzerakzeptanz", "Ist entscheidend, da selbst die besten technischen Maßnahmen wenig nützen, wenn sie von den Nutzern nicht akzeptiert oder verstanden werden. Bei geringer Akzeptanz, vielen Beschwerden und hohem Schulungsbedarf gibt es Abzüge in der Bewertung. Ist die Akzeptanz vorhanden, aber noch Verbesserungspotenzial erkennbar, bleibt die Bewertung neutral. Pluspunkte werden vergeben, wenn die Akzeptanz hoch ist, die Nutzer zufrieden sind und wenig Unterstützung benötigen."),
-        ("Weitere wichtige Faktoren", "Zielerreichung (hier mit Cybercrime vorgegeben), Effizienz, Anpassungsfähigkeit, Messbarkeit.")
+        ("Weitere wichtige Faktoren", "Modernität und Zukunftssicherheit, Effizienz, Anpassungsfähigkeit, Messbarkeit.")
     ]
 }
 
@@ -81,8 +83,8 @@ factor_descriptions_qor = {
 
 # QoPI titles
 qopi_titles = {
-    'en': "Process Implementation (Maturity)",
-    'de': "Prozess-Implementierung (Reifegrad)"
+    'en': "Process Implementation Maturity",
+    'de': "Prozess-Implementierungsreife"
 }
 
 # Quality of Process Implementation Maturity Levels
@@ -131,7 +133,7 @@ factor_descriptions_qopi = {
 
 no_qopi_message = {
     'en': "Process implementation maturity not specified.",
-    'de': "Prozess-Implementierungsmaturität nicht spezifiziert."
+    'de': "Prozess-Implementierungsreife nicht spezifiziert."
 }
 
 ##############
@@ -178,17 +180,17 @@ color_legend_text = {
 
 ### QoR ### 
 legend_title_qor = {
-    'en': "Quality of Results - Show more information",
+    'en': "Result Quality - Show more information",
     'de': "Ergebnisqualität - Mehr Informationen anzeigen"
 }
 
 maturity_level_title_qor = {
-    'en': "Quality of Results Maturity Levels",
+    'en': "Result Quality Maturity Levels",
     'de': "Ergebnisqualität Reifegrade"
 }
 
 factor_descriptions_qor_title = {
-    'en': "Important factors for quality of results",
+    'en': "Important factors for result quality",
     'de': "Wichtige Faktoren für Ergebnisqualität"
 }
  ### QoPI ### 
@@ -198,12 +200,12 @@ legend_title_qopi = {
 }
 
 maturity_level_title_qopi = {
-    'en': "Quality of Process Implementation Maturity Levels",
-    'de': "Prozess-Implementierungsqualität Reifegrade"
+    'en': "Process Implementation Maturity Levels",
+    'de': "Prozess-Implementierung Reifegrade"
 }
 
 factor_descriptions_qopi_title = {
-    'en': "Important factors for Quality of Process Implementation",
+    'en': "Important factors for Process Implementation Quality",
     'de': "Wichtige Faktoren für Prozess-Implementierungsqualität"
 }
 
