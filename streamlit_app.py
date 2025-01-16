@@ -57,6 +57,13 @@ uploaded_file = st.sidebar.file_uploader(
     type=["xlsx"]
 )
 
+# Use the alternative label if provided, otherwise use the default
+should_be_label = alternative_should_be_label_input if alternative_should_be_label_input else "SHOULD BE"
+
+# Calculate dynamic width based on alternative label length
+should_be_label_length = len(should_be_label)
+fig_width = max(8, should_be_label_length * 0.2)  # Adjust width dynamically
+
 # Function to determine bar color
 def determine_bar_color(effectiveness, should_be, baseline_threshold):
     if effectiveness < baseline_threshold:
@@ -107,7 +114,7 @@ def create_plot(effectiveness, should_be, baseline_threshold, title):
         ax.axvline(should_be, color=should_be_color, linewidth=3)
         
         # Decide on label positions to avoid overlap
-        if abs(baseline_threshold - should_be) <= 13:
+        if abs(baseline_threshold - should_be) <= ((should_be_label_length / 2) + 8):
             ax.text(baseline_threshold, -0.3, baseline_label, rotation=0, va='top', ha='center', fontsize=8, color='red')
             ax.text(should_be, -0.5, should_be_label, rotation=0, va='top', ha='center', fontsize=8, color=should_be_color)
         else:
@@ -129,9 +136,6 @@ def create_plot(effectiveness, should_be, baseline_threshold, title):
 
 # Display page title
 st.title(get_text(page_titles))
-
-# Use the alternative label if provided, otherwise use the default
-should_be_label = alternative_should_be_label_input if alternative_should_be_label_input else "SHOULD BE"
 
 # Process the uploaded file
 if uploaded_file:
@@ -206,10 +210,6 @@ if uploaded_file:
             lang: [text.format(SB_label=should_be_label) for text in texts]
             for lang, texts in color_legend_text.items()
         }
-
-        # Calculate dynamic width based on alternative label length
-        label_length = len(should_be_label)
-        fig_width = max(8, label_length * 0.2)  # Adjust width dynamically
 
         # Display legend for color assignment logic
         st.header(get_text(legend_title))
