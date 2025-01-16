@@ -1,5 +1,28 @@
 # config.py
 
+# Define required Excel columns
+required_input_columns = [
+    'Phase number', 
+    'Measure Number', 
+    'QoR effectiviness from 0-100', 
+    'QoR SHOULD BE indication from 0-100'
+]
+
+input_error_messages = {
+    'missing_columns': {
+        'de': "Die hochgeladene Datei enthält nicht die erforderlichen Spalten: {columns}.",
+        'en': "The uploaded file does not contain the required columns: {columns}."
+    },
+    'range_error': {
+        'de': "Einige Werte in den relevanten Spalten liegen außerhalb des Bereichs 0-100.",
+        'en': "Some values in the relevant columns are outside the range 0-100."
+    },
+    'general_error': {
+        'de': "Fehler beim Verarbeiten der Datei: {error}",
+        'en': "Error processing the file: {error}"
+    }
+}
+
 # Define thresholds for multiple maturity levels
 baseline_threshold_qor = 50
 should_be_threshold_qor = 50  # Standard value, adjust as needed in Excel
@@ -158,23 +181,23 @@ color_legend_text = {
         "Below 50% of Baseline",          # Effektivität ist weniger als 50% der Grundlinie
         "50-80% of Baseline",             # Effektivität ist zwischen 50% und 80% der Grundlinie
         "80-100% of Baseline",            # Effektivität ist zwischen 80% und 100% der Grundlinie
-        "Above Baseline, <50% to SHOULD BE",  # Effektivität ist über der Grundlinie, aber weniger als 50% des Weges zum SOLL
-        "Above Baseline, 50-80% to SHOULD BE",  # Effektivität liegt zwischen 50% und 80% des Weges zum SOLL
-        "Above Baseline, 80-100% to SHOULD BE", # Effektivität liegt zwischen 80% und 100% des Weges zum SOLL
-        "Above SHOULD BE, <10%",          # Effektivität ist bis zu 10% über dem SOLL-Wert
-        "Above SHOULD BE, <20%",          # Effektivität ist zwischen 10% und 20% über dem SOLL-Wert
-        "Above SHOULD BE, >20%"           # Effektivität ist mehr als 20% über dem SOLL-Wert
+        "Above Baseline, <50% to {SB_label}",  # Effektivität ist über der Grundlinie, aber weniger als 50% des Weges zum SOLL
+        "Above Baseline, 50-80% to {SB_label}",  # Effektivität liegt zwischen 50% und 80% des Weges zum SOLL
+        "Above Baseline, 80-100% to {SB_label}", # Effektivität liegt zwischen 80% und 100% des Weges zum SOLL
+        "Above {SB_label}, <10%",          # Effektivität ist bis zu 10% über dem SOLL-Wert
+        "Above {SB_label}, <20%",          # Effektivität ist zwischen 10% und 20% über dem SOLL-Wert
+        "Above {SB_label}, >20%"           # Effektivität ist mehr als 20% über dem SOLL-Wert
     ],
     'de': [
         "Unter 50% der Grundlinie",        # Effektivität ist weniger als 50% der Grundlinie
         "50-80% der Grundlinie",           # Effektivität ist zwischen 50% und 80% der Grundlinie
         "80-100% der Grundlinie",          # Effektivität ist zwischen 80% und 100% der Grundlinie
-        "Über der Grundlinie, <50% bis SOLL",  # Effektivität ist über der Grundlinie, aber weniger als 50% des Weges zum SOLL
-        "Über der Grundlinie, 50-80% bis SOLL", # Effektivität liegt zwischen 50% und 80% des Weges zum SOLL
-        "Über der Grundlinie, 80-100% bis SOLL",# Effektivität liegt zwischen 80% und 100% des Weges zum SOLL
-        "Über SOLL, <10%",                 # Effektivität ist bis zu 10% über dem SOLL-Wert
-        "Über SOLL, <20%",                 # Effektivität ist zwischen 10% und 20% über dem SOLL-Wert
-        "Über SOLL, >20%"                  # Effektivität ist mehr als 20% über dem SOLL-Wert
+        "Über der Grundlinie, <50% bis {SB_label}",  # Effektivität ist über der Grundlinie, aber weniger als 50% des Weges zum SOLL
+        "Über der Grundlinie, 50-80% bis {SB_label}", # Effektivität liegt zwischen 50% und 80% des Weges zum SOLL
+        "Über der Grundlinie, 80-100% bis {SB_label}",# Effektivität liegt zwischen 80% und 100% des Weges zum SOLL
+        "Über {SB_label}, <10%",                 # Effektivität ist bis zu 10% über dem SOLL-Wert
+        "Über {SB_label}, <20%",                 # Effektivität ist zwischen 10% und 20% über dem SOLL-Wert
+        "Über {SB_label}, >20%"                  # Effektivität ist mehr als 20% über dem SOLL-Wert
     ]
 }
 
