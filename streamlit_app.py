@@ -11,8 +11,12 @@ from config import (
     factor_descriptions_qor_title, baseline_threshold_qopi, should_be_threshold_qopi,
     legend_title_qor, factor_descriptions_qor, factor_descriptions_qor_title,
     legend_title_qopi, maturity_level_title_qopi, factor_descriptions_qopi_title,
-    factor_descriptions_qopi
+    factor_descriptions_qopi, scale_explanation_title, scale_explanation_text
 )
+from scale_explanation import draw_simple_explanation_scale_with_colors
+
+# Enable or disable debugging mode
+DEBUG_MODE = False  # Set to False to disable debugging
 
 # Set page configuration
 st.set_page_config(page_title="Cyber Measures Assessment", layout="centered")
@@ -48,14 +52,17 @@ alternative_should_be_label_input = st.sidebar.text_input(
 
 st.sidebar.markdown("---")  # Add a horizontal line for separation
 
-# File uploader in the sidebar
-uploaded_file = st.sidebar.file_uploader(
-    get_text({
-        'de': "Bewertungsdatei im XLSX-Format hochladen",
-        'en': "Upload Measures XLSX File"
-    }), 
-    type=["xlsx"]
-)
+# File uploader in the sidebar (disabled in debug mode)
+if not DEBUG_MODE:
+    uploaded_file = st.sidebar.file_uploader(
+        get_text({
+            'de': "Bewertungsdatei im XLSX-Format hochladen",
+            'en': "Upload Measures XLSX File"
+        }), 
+        type=["xlsx"]
+    )
+else:
+    uploaded_file = "Bewertung_Mindeststandards2022.xlsx"  # Local file for debugging
 
 # Use the alternative label if provided, otherwise use the default
 should_be_label = alternative_should_be_label_input if alternative_should_be_label_input else "SHOULD BE"
@@ -66,6 +73,17 @@ fig_width = max(8, should_be_label_length * 0.2)  # Adjust width dynamically
 
 # Function to determine bar color
 def determine_bar_color(effectiveness, should_be, baseline_threshold):
+    """
+    Determines the bar color based on effectiveness, SHOULD_BE, and baseline thresholds.
+    If baseline_threshold == should_be, should_be is slightly increased to avoid division by zero.
+    """
+    # Ensure baseline_threshold is not <= 0
+    if baseline_threshold <= 0:
+        baseline_threshold = 1    
+    # Ensure should_be is not equal to baseline_threshold
+    if baseline_threshold == should_be:
+        should_be += 1  # Slightly increase SHOULD_BE to avoid division by zero
+
     if effectiveness < baseline_threshold:
         if effectiveness < baseline_threshold * 0.5:
             return 'red'
@@ -74,6 +92,7 @@ def determine_bar_color(effectiveness, should_be, baseline_threshold):
         else:
             return 'yellow'
     elif effectiveness <= should_be:
+        # Calculate progress between baseline and should_be
         progress = (effectiveness - baseline_threshold) / (should_be - baseline_threshold)
         if progress < 0.5:
             return 'lightgreen'
@@ -82,6 +101,7 @@ def determine_bar_color(effectiveness, should_be, baseline_threshold):
         else:
             return 'darkgreen'
     else:
+        # Calculate surplus above should_be
         surplus = effectiveness - should_be
         if surplus <= 10:
             return 'lightblue'
@@ -143,6 +163,26 @@ if uploaded_file:
         # Load measures data
         measures_data = pd.read_excel(uploaded_file)
         
+        # Debugging: Display the first few rows of the data
+        if DEBUG_MODE:
+            st.write("Debugging Info: First few rows of the data:")
+            st.write(measures_data.head())
+
+        # Convert relevant columns to numeric values
+        numeric_columns = [
+            'QoR effectiviness from 0-100', 
+            'QoR SHOULD BE indication from 0-100', 
+            'QoPI effectiviness from 0-100', 
+            'QoPI SHOULD BE indication from 0-100'
+        ]
+        measures_data[numeric_columns] = measures_data[numeric_columns].apply(pd.to_numeric, errors='coerce')
+
+        # Ensure no NaN values in numeric columns
+        if measures_data[numeric_columns].isnull().values.any():
+            invalid_columns = measures_data[numeric_columns].columns[measures_data[numeric_columns].isnull().any()].tolist()
+            st.error(get_text(input_error_messages['range_error']) + f" Ungültige Spalten: {', '.join(invalid_columns)}")
+            st.stop()
+
         # Check if required columns are present
         if not all(column in measures_data.columns for column in required_input_columns):
             missing_columns_text = get_text(input_error_messages['missing_columns']).format(columns=', '.join(required_input_columns))
@@ -205,6 +245,36 @@ if uploaded_file:
 
                 st.markdown("---")
 
+
+        ### Scale Explanation ###
+        # Display a simple explanation of the scale
+        
+        # Dynamically update the scale explanation text
+        updated_scale_explanation_text = {
+            lang: [text.format(SB_label=should_be_label) for text in texts]
+            for lang, texts in scale_explanation_text.items()
+        }
+
+        st.header(get_text(scale_explanation_title))
+        # Display the updated scale explanation text for the selected language using markdown
+        for text in updated_scale_explanation_text[selected_language]:
+            st.markdown(f"{text}")  # Bullet point for each explanation
+
+        # Draw the scale with colors determined by the logic in determine_bar_color
+        fig = draw_simple_explanation_scale_with_colors(
+            determine_bar_color=determine_bar_color,  # Pass the color determination function
+            baseline_threshold=baseline_threshold_qor,  # Baseline threshold from config.py
+            should_be=71,  # SHOULD_BE threshold fixed with 71 for the example
+            selected_language=selected_language,  # Selected language for labels
+            get_text=get_text,  # Function to get multilingual text
+            should_be_label= should_be_label,
+            debug = DEBUG_MODE
+        )
+
+        # Display the scale in Streamlit
+        st.pyplot(fig)
+        ###
+        
         # Dynamically update the color legend text
         updated_color_legend_text = {
             lang: [text.format(SB_label=should_be_label) for text in texts]
@@ -259,6 +329,8 @@ if uploaded_file:
     except Exception as e:
         general_error_text = get_text(input_error_messages['general_error']).format(error=str(e))
         st.error(general_error_text)
+        if DEBUG_MODE:
+            st.error(f"Debugging Info: {e}")  # Zusätzliche Debugging-Informationen
 else:
     st.info(get_text(upload_prompt))
     

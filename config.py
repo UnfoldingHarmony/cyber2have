@@ -159,6 +159,25 @@ no_qopi_message = {
     'de': "Prozess-Implementierungsreife nicht spezifiziert."
 }
 
+#########################
+### Scale Explanation ###
+#########################
+
+# Scale Explanation title
+scale_explanation_title = {
+    'en': "Explanation of how to interpret the scale",
+    'de': "Erläuterung zur Interpretation der Skala"
+}
+
+# Scale Explanation texts
+scale_explanation_text = {
+    'en': [
+        "The baseline is in the middle, as this is a baseline standard. Additionally, the {SB_label} value is marked."
+    ],
+    'de': [
+        "Die Grundlinie liegt in der Mitte, da es sich um einen Mindeststandard handelt. Zusätzlich ist eine {SB_label} markiert."
+    ]
+}
 ##############
 ### Legend ###
 ##############
